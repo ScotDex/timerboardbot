@@ -1,1 +1,6 @@
-discord.py
+FROM python:3.9
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["python", "eve_timer_bot.py", "--output", "/app/output"]  # Pass the output directory as an argument to the bot script
