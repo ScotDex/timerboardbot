@@ -59,12 +59,9 @@ async def on_message(message):
             await message.channel.send(response)
 
 @client.event
-async def on_ready():
-    print(f'Logged in as {client.user.name}')
-    print('------')
-
 async def check_timers():
-    while True:
+    await client.wait_until_ready()
+    while not client.is_closed():
         await asyncio.sleep(60)  # Check every minute
 
         for structure_name, timers in structures.items():
@@ -78,6 +75,6 @@ async def check_timers():
             await user.send(f'{user.mention}, your timer for {structure_name} is up!')
             structures[structure_name].remove(timer)
 
-# Replace 'YOUR_BOT_TOKEN' with your actual bot token from the Discord Developer Portal
 client.loop.create_task(check_timers())
+# Replace 'YOUR_BOT_TOKEN' with your actual bot token from the Discord Developer Portal
 client.run('MTEzMzc1NDc3NjQ2MzYyNjI4MA.GOB_gq.Y0kNW-W2XDmpznOwesFycVDLKRsWw1YSqFndSA')
