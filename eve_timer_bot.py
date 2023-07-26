@@ -80,4 +80,4 @@ async def check_timers():
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token from the Discord Developer Portal
 client.loop.create_task(check_timers())
-client.run('YOUR_BOT_TOKEN')
+client.run('MTEzMzc1NDc3NjQ2MzYyNjI4MA.GOB_gq.Y0kNW-W2XDmpznOwesFycVDLKRsWw1YSqFndSA')
